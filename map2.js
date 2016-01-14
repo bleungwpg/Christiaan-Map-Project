@@ -5,6 +5,7 @@ var a = [];
 
 function preload() {
   img = loadImage("images/fourcolor.png");
+  chart = loadImage("images/worldmapbgchart.png");
 }
 
 function setup() {
