@@ -164,7 +164,10 @@ function setup() {
 		a[j] = pixels[i+3];
 	}
 	previousContinentNum = 1;
-	createCanvas(553,605);
+//	createCanvas(553,605);
+	createCanvas(1053,605);
+	
+	init();
 }
 
 function draw()
@@ -209,4 +212,9 @@ function draw()
 
 	previousContinentNum = continentNum;
 	//  text(r[q]+" "+g[q]+" "+b[q]+" "+a[q],575,90);
+	
+	
+	// show results of that province/state
+	fill(255,0,0);
+	text(usemap,600,50);
 }
