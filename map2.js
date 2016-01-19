@@ -11,7 +11,7 @@ var studentnum = [];
 var fruit = [];
 var ttsheet1;
 var ttsheet2;
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/19KOzMNajpUqEOwUiTSXU4Je6iW7A1pl3R2qykHqAg3w/pubhtml';
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1nzBc-73qjEaDQqkXj7WfYmvkcOHpfbyQzMbqHKwb-a8/pubhtml';
 
 
 var rChart = [];
@@ -184,8 +184,6 @@ function setup() {
 	createCanvas(1253,605);
 	
 	startme = 1;
-	sheetonemaxr = 0;
-	sheettwomaxr = 0;
 	init();
 }
 
@@ -248,20 +246,87 @@ function draw()
 	fill(0,0,0);
 	if (sheetonedata[0][0] != null && sheettwodata[0][0] != null)
 	{
+	
+		// template of info to show for overall statistics
+		text("Country",600,50);
+		text("Population",600,75);
+		text("Yearly Income",600,100);
+		text("Army Size",600,125);
+		text("Navy Size",600,150);
+		text("Surplus Food",600,175);
+		text("Surplus Oil",600,200);
+		text("Surplus Coal",600,225);
+		text("Surplus Steel",600,250);
+		text("Surplus Rubber",600,275);
+		text("Army / Navy Income Costs",600,300);
+		text("Trade Income",600,325);
+		text("Remaining Income",600,350);
+		
 		// selectively show country data based on position of mouse over country
-		if (continentNum > 0 && continentNum < 5)
+		// Yorkton
+		if (continentNum > 0 && continentNum < 6)
 		{
-			text("country number        leader                       country",600,75);
-			text("country number        major export fruit      secretary of defense",600,175);
+
+
+
 			for (col = 0; col < sheetonemaxc; col++)
 			{
-				text(sheetonedata[continentNum-1][col],600+col*110,100);	
+				text(sheetonedata[5][col],775,50+col*25);	
 			}
-			for (col = 0; col < sheettwomaxc; col++)
+		}
+		// Caldonia
+		if (continentNum > 5 && continentNum < 10)
+		{
+
+
+
+			for (col = 0; col < sheetonemaxc; col++)
+			{
+				text(sheetonedata[1][col],775,50+col*25);	
+			}
+		}
+		// Penland
+		if (continentNum > 9 && continentNum < 16)
+		{
+			for (col = 0; col < sheetonemaxc; col++)
+			{
+				text(sheetonedata[3][col],775,50+col*25);	
+			}
+		}
+		// Bahkan
+		if (continentNum > 15 && continentNum < 19)
+		{
+			for (col = 0; col < sheetonemaxc; col++)
+			{
+				text(sheetonedata[0][col],775,50+col*25);	
+			}
+		}
+		// Morovia
+		if (continentNum > 18 && continentNum < 26)
+		{
+			for (col = 0; col < sheetonemaxc; col++)
+			{
+				text(sheetonedata[2][col],775,50+col*25);	
+			}
+		}		
+		// Sandia
+		if (continentNum > 25 && continentNum < 33)
+		{
+			for (col = 0; col < sheetonemaxc; col++)
+			{
+				text(sheetonedata[4][col],775,50+col*25);	
+			}
+		}			
+		
+		
+		
+			/*
+			for (col = 0; col < 5; col++)
 			{
 				text(sheettwodata[continentNum-1][col],600+col*110,200);	
 			}
-		}
+			*/
+
 
 					
 					/*
@@ -291,11 +356,11 @@ function draw()
 function init() {
 	ttsheet1 = Tabletop.init( { key: public_spreadsheet_url,
 					 callback: showInfo1,
-					 wanted: ["Sheet1"],
+					 wanted: ["Overall Statistics"],
 					  simpleSheet: true } )
 	ttsheet1 = Tabletop.init( { key: public_spreadsheet_url,
 					 callback: showInfo2,
-					 wanted: ["Sheet2"],
+					 wanted: ["Nation Statistics"],
 					  simpleSheet: true } )
 }
 
