@@ -25,6 +25,7 @@ var green = [];
 var blue = [];
 
 var continentNum;
+var startme
 
 function preload() {
 	knock = loadSound('sounds/knock2.m4a');
@@ -182,6 +183,7 @@ function setup() {
 //	createCanvas(553,605);
 	createCanvas(1253,605);
 	
+	startme = 1;
 	sheetonemaxr = 0;
 	sheettwomaxr = 0;
 	init();
@@ -189,9 +191,19 @@ function setup() {
 
 function draw()
 {
-	background(0,0,0);
+	background(255,255,255);
 	image(worldmap, 0, 0);
 	q = (mouseX+mouseY*553*2)*2;
+	
+	if (startme == 1 && sheetonedata[0][0] == null)
+	{
+		fill(0,0,0);
+		text("Mouse your mouse over regions 1 - 4 to see new changes",600,400);
+	}
+	else
+	{
+		startme = 0;
+	}
 
 	if (mouseX > 553 || mouseY > 605)
 	{
@@ -233,7 +245,7 @@ function draw()
 	
 	
 	// show results of that province/state
-	fill(255,0,0);
+	fill(0,0,0);
 	if (sheetonedata[0][0] != null && sheettwodata[0][0] != null)
 	{
 		// selectively show country data based on position of mouse over country
