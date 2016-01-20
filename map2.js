@@ -1,3 +1,6 @@
+// Jeff: suggested using "Firebase" or "Parse" as database integration solutions
+// Justin: Possibly some basic interface design
+
 var sheetonedata = [[]];
 var sheetonemaxr;
 var sheetonemaxc;
@@ -11,7 +14,7 @@ var studentnum = [];
 var fruit = [];
 var ttsheet1;
 var ttsheet2;
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1nzBc-73qjEaDQqkXj7WfYmvkcOHpfbyQzMbqHKwb-a8/pubhtml';
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1GC82DqxSipNHE7iDAigsjvvyTp6A7uH3PbAyTQd7AAQ/pubhtml';
 
 
 var rChart = [];
@@ -36,7 +39,6 @@ function preload() {
 	{
 		border[i] = loadImage("images/"+i+".png");
 	}
-
 }
 
 function setup() {
@@ -249,18 +251,18 @@ function draw()
 	
 		// template of info to show for overall statistics
 		text("Country",600,50);
-		text("Population",600,75);
-		text("Yearly Income",600,100);
-		text("Army Size",600,125);
-		text("Navy Size",600,150);
-		text("Surplus Food",600,175);
-		text("Surplus Oil",600,200);
-		text("Surplus Coal",600,225);
-		text("Surplus Steel",600,250);
-		text("Surplus Rubber",600,275);
-		text("Army / Navy Income Costs",600,300);
-		text("Trade Income",600,325);
-		text("Remaining Income",600,350);
+		text("Population Approval Rating",600,75);
+		text("Total Income Generated",600,100);
+		text("Taxation Yield",600,125);
+		text("Agricultural Income",600,150);
+		text("Trade Income",600,175);
+		text("Number of Provinces",600,200);
+		text("AVG Agricultural Rating",600,225);
+		text("AVG Agricultural Technology",600,250);
+		text("AVG Transport Technology",600,275);
+		text("Industry Production Rating",600,300);
+		text("Trade Rating",600,325);
+		text("Colonies Rating",600,350);
 		
 		// selectively show country data based on position of mouse over country
 		// Yorkton
@@ -356,11 +358,11 @@ function draw()
 function init() {
 	ttsheet1 = Tabletop.init( { key: public_spreadsheet_url,
 					 callback: showInfo1,
-					 wanted: ["Overall Statistics"],
+					 wanted: ["Overall Stats"],
 					  simpleSheet: true } )
-	ttsheet1 = Tabletop.init( { key: public_spreadsheet_url,
+	ttsheet2 = Tabletop.init( { key: public_spreadsheet_url,
 					 callback: showInfo2,
-					 wanted: ["Nation Statistics"],
+					 wanted: ["Population and Government"],
 					  simpleSheet: true } )
 }
 
